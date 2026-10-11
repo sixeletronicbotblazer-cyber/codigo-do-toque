@@ -163,6 +163,19 @@ em { font-family: var(--serif); color: #ef2835; }
 .faq-list details { background: #222224; border-color: #5b4941; }
 .faq-list summary b { background: #55121a; color: var(--gold); }
 .faq-list details p { color: #bbb3af; }
+.before-after { background: #0e0e10; }
+.before-after .heading h2 { color: #f1e8e4; }
+.before-col { background: linear-gradient(145deg, #2a1a1c, #1a1214); border-color: #57403b; }
+.after-col { background: linear-gradient(145deg, #1e2a1e, #141a14); border-color: #3b5740; }
+.before-col h3 { color: #e8a0a0; }
+.after-col h3 { color: #a0e8a0; }
+.before-after-list li { color: #cbbcb4; }
+.before-after-close { color: #bbb4b0; }
+.guarantee { background: radial-gradient(circle at 50% 50%, #1a2a1a, #0d0d0f 60%); }
+.guarantee-card { background: #1c1c1e; border-color: #4a7a4a; }
+.guarantee-card h3 { color: #e0f0e0; }
+.guarantee-card p { color: #bbb4b0; }
+.final-cta { background: radial-gradient(circle at 50% 50%, #3b0a11, #0a0a0c 65%); }
 .footer { background: #080809; border-top: 1px solid #513337; }
 .footer-main p { color: #ada39f; }
 .footer-main>a:last-child { color: var(--gold); }

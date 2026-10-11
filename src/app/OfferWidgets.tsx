@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 const configuredMinutes = Number(process.env.NEXT_PUBLIC_UPGRADE_WINDOW_MINUTES);
-const WINDOW_MS = (Number.isFinite(configuredMinutes) && configuredMinutes >= 1 && configuredMinutes <= 1440 ? configuredMinutes : 120) * 60 * 1000;
-const STORAGE_KEY = 'codigo-do-toque-bf-window-v1';
+const WINDOW_MS = (Number.isFinite(configuredMinutes) && configuredMinutes >= 1 && configuredMinutes <= 1440 ? configuredMinutes : 45) * 60 * 1000;
+const STORAGE_KEY = 'codigo-do-toque-bf-window-v2';
 
 export function useOfferWindow() {
   const [remaining, setRemaining] = useState(WINDOW_MS);
@@ -40,11 +40,11 @@ export function BlackFridayBar({ remaining }: { remaining: number }) {
     <div className="bf-bar">
       <div className="wrap bf-inner">
         <div className="bf-copy">
-          <strong>BLACK <span>FRIDAY</span></strong>
-          <small>{remaining > 0 ? 'Upgrade especial desta visita' : 'O upgrade especial desta visita terminou'}</small>
+          <strong>CONDIÇÃO DE <span>LANÇAMENTO</span></strong>
+          <small>{remaining > 0 ? 'Guia + 3 materiais por R$ 39,90' : 'A condição de lançamento terminou'}</small>
         </div>
         <div className="bf-time">
-          <span>{remaining > 0 ? 'CONDIÇÃO ATIVA POR' : 'TEMPO ENCERRADO'}</span>
+          <span>{remaining > 0 ? 'OFERTA EXPIRA EM' : 'OFERTA ENCERRADA'}</span>
           <FlipClock remaining={remaining} compact />
         </div>
         <a href="#oferta" className="bf-link">Ver ofertas <span>↗</span></a>
@@ -85,7 +85,7 @@ export function UpgradeModal({ open, onClose, remaining, basicUrl, upgradeUrl, f
         <div className="upgrade-copy">
           <span className="offer-tag">ANTES DE ESCOLHER SÓ O GUIA</span>
           <h2 id="upgrade-title">Leve a <em>experiência completa.</em></h2>
-          <p>Além dos 23 movimentos, você recebe os três materiais de apoio: comunicação, reciprocidade e primeiros passos.</p>
+          <p>Além dos 23 movimentos, você recebe os três materiais para ir de bom a referência: palavras, conexão e presença.</p>
           {discounted ? (
             <>
               <div className="upgrade-price">
