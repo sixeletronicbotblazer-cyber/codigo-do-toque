@@ -57,10 +57,10 @@ em { font-family: var(--serif); color: #ef2835; }
 .hero-image { background-image: url('/assets/v5-hero-desktop.webp'); background-position: center 46%; }
 .hero-overlay { background: linear-gradient(90deg, #060607ed 0%, #080608c9 37%, #0906071f 70%), linear-gradient(0deg, #0706089c, transparent 36%); }
 .hero header small { color: var(--gold-soft); }
-.hero-copy h1 { max-width: 650px; }
+.hero-copy h1 { max-width: 600px; }
 .hero-copy.visible { animation: none; transform: translateY(-50%); }
 .hero h1 em { color: #f0d1d1; text-shadow: 0 0 26px #ba111d77; }
-.hero-copy>p { color: #dfd7d3; font-size: 17px; }
+.hero-copy>p { color: #dfd7d3; font-size: 15px; }
 .hero-copy>small { color: #c2b8b4; }
 .hero-label span { color: var(--gold); }
 .hero-label strong { font-family: var(--serif); font-size: 28px; font-style: italic; }
@@ -249,8 +249,8 @@ em { font-family: var(--serif); color: #ef2835; }
   .hero-wrap { min-height: 770px; }
   .hero-image { background-image: url('/assets/v5-hero-mobile.webp'); background-size: cover; background-position: center top; }
   .hero-overlay { background: linear-gradient(0deg, #060607 1%, #070607d8 38%, #0906070c 76%); }
-  .hero h1 { font-size: clamp(40px, 10.2vw, 54px); }
-  .hero-copy>p { font-size: 14px; }
+  .hero h1 { font-size: clamp(36px, 9.2vw, 48px); }
+  .hero-copy>p { font-size: 13px; }
   .hero-copy.visible { transform: none; }
   .hero-label { display: none; }
   .intro-panel { background: #1a1a1c; }
@@ -285,7 +285,7 @@ em { font-family: var(--serif); color: #ef2835; }
 @media (max-width: 410px) {
   .bf-copy small { max-width: 93px; }
   .bf-link { display: none; }
-  .hero h1 { font-size: 41px; }
+  .hero h1 { font-size: 36px; }
   .bonus-stack .magazine { width: 26%; }
   .stack-one { left: 7%; }
   .stack-two { left: 37%; }

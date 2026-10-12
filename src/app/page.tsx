@@ -68,7 +68,7 @@ export default function Home() {
         <h1>Ela não lembra do homem que fez mais.<br /><em>Lembra do que soube conduzir.</em></h1>
         <p>O Código do Toque reúne 23 movimentos com preparo, ritmo e leitura de reação. Em poucos dias você deixa de repetir a mesma sequência e passa a saber o próximo passo, com a segurança de quem sabe o que está fazendo.</p>
         <Button href="#guia">Quero conduzir com segurança</Button>
-        <small>Acesso imediato por e-mail <span>•</span> Pagamento único <span>•</span> A partir de R$ 24,90</small>
+        <small>Acesso imediato por e-mail <span>•</span> Pagamento único <span>•</span> A partir de R$ 14,90</small>
       </div>
       <div className="hero-label"><span>COM MARINA</span><strong>Código do Toque</strong></div>
     </div><div className="notch" /></section>
@@ -164,7 +164,7 @@ export default function Home() {
           <h3>Só o guia</h3>
           <p>Para começar agora com a técnica que muda o seu jeito de conduzir.</p>
           <ul className="ticks"><li>Guia Código do Toque em PDF</li><li>23 movimentos em sequência visual</li><li>Leitura no celular, tablet ou computador</li></ul>
-          <div className="plan-price"><small>Pagamento único</small><strong><span>R$</span> 24,90</strong></div>
+          <div className="plan-price"><small>Pagamento único</small><strong><span>R$</span> 14,90</strong></div>
           <button type="button" className="pill-button plan-button" onClick={() => setUpgradeOpen(true)}>Quero o guia <b>↗</b></button>
           <small className="plan-note">Menos que um combo de delivery. Para a vida inteira.</small>
         </article>
@@ -175,9 +175,9 @@ export default function Home() {
           <h3>Pacote Completo</h3>
           <p>O guia + 3 materiais para você dominar a condução inteira.</p>
           <ul className="ticks"><li>Guia com 23 movimentos</li><li>Palavras que Aproximam</li><li>Conexão em Duas Vias</li><li>Tantra sem Complicação</li></ul>
-          <div className="plan-price"><small>Pagamento único</small><strong><span>R$</span> 39,90</strong></div>
+          <div className="plan-price"><small>Pagamento único</small><strong><span>R$</span> 24,90</strong></div>
           <CheckoutLink url={fullUrl} className="plan-button">Quero o pacote completo</CheckoutLink>
-          <small className="plan-note">Só R$ 15 a mais para levar 3 materiais.</small>
+          <small className="plan-note">Só R$ 10 a mais para levar 3 materiais.</small>
         </article>
       </div>
     </div></section>
@@ -259,7 +259,7 @@ export default function Home() {
       <p style={{color:'#bbb4b0',maxWidth:'500px',margin:'0 auto',fontSize:'14px'}}>Por menos que um jantar, você leva o método para a vida toda.</p>
       <div className="final-cta-buttons">
         <CheckoutLink url={fullUrl} className="">Quero o pacote completo</CheckoutLink>
-        <CheckoutLink url={basicUrl} className="">Só o guia por R$ 24,90</CheckoutLink>
+        <CheckoutLink url={basicUrl} className="">Só o guia por R$ 14,90</CheckoutLink>
       </div>
       <div className="final-cta-micro">Acesso imediato <span>•</span> Garantia de 7 dias <span>•</span> Compra discreta</div>
     </div></section>

@@ -111,3 +111,42 @@ Stage Summary:
 - Before/after section is now significantly more compact and accessible
 - Responsive: 2 columns on desktop and medium mobile, 1 column on small mobile
 - All text remains readable with good contrast
+---
+Task ID: 3
+Agent: main
+Task: Fix hero text size, fix hero background image, update upgrade modal to downsell, update prices and URLs
+
+Work Log:
+- Changed hero-copy top from 30% to 36% (moderate, not too high)
+- Reduced hero h1 font size: added clamp(36px, 4.8vw, 54px) on desktop
+- Reduced hero paragraph: 17px→15px font, 510px→490px max-width, tighter margins
+- Reduced hero h1 on 900px: 59px→48px, max-width 610→480px
+- Reduced hero h1 on 700px: clamp(43px,10.6vw,56px)→clamp(36px,9.2vw,48px), 14px→13px paragraph
+- Reduced hero h1 on 410px: 43px→36px, bottom 120px→105px
+- Updated theme-v3.css to match reduced font sizes across all breakpoints
+- Background image positioning was NOT changed (user concern was about text, not image)
+- Updated UpgradeModal: changed from upgrade (R$31.90) to downsell (R$19.90 for complete)
+  - Tag: "ANTES DE ESCOLHER SÓ O GUIA" → "OFERTA RELÂMPAGO"
+  - Price: "+ R$ 7,00 / R$ 31,90" → "+ R$ 5,00 / R$ 19,90"
+  - Comparison: "R$ 31,90 em vez de R$ 39,90" → "De R$ 24,90 por R$ 19,90 — economize R$ 5,00"
+  - Expired price: R$ 39,90 → R$ 24,90
+  - Timer text: "condição desta visita" → "oferta relâmpago"
+  - Basic link: R$ 24,90 → R$ 14,90
+- Updated all prices in page.tsx:
+  - Basic: R$ 24,90 → R$ 14,90
+  - Complete: R$ 39,90 → R$ 24,90
+  - Plan note: "R$ 15 a mais" → "R$ 10 a mais"
+  - Hero subtitle: "A partir de R$ 24,90" → "A partir de R$ 14,90"
+  - Final CTA: "R$ 24,90" → "R$ 14,90"
+- Updated BlackFridayBar: "R$ 39,90" → "R$ 24,90"
+- Set checkout URLs in .env:
+  - NEXT_PUBLIC_CHECKOUT_BASIC_URL=https://pay.cakto.com.br/8taxcob
+  - NEXT_PUBLIC_CHECKOUT_FULL_URL=https://pay.cakto.com.br/3j7svgt_458559
+  - NEXT_PUBLIC_CHECKOUT_UPGRADE_URL=https://pay.cakto.com.br/3ezykqi
+- Browser verified: hero text well-positioned, no overlap, image correct, modal shows R$19.90 downsell, countdown working
+
+Stage Summary:
+- Hero text reduced and repositioned to not overlap image on both desktop and mobile
+- All prices updated: Basic R$14.90, Complete R$24.90, Downsell R$19.90
+- Upgrade modal now shows "OFERTA RELÂMPAGO" downsell with R$19.90 price and R$5 savings
+- Checkout URLs configured with new Cakto payment links

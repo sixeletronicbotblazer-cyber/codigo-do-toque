@@ -41,7 +41,7 @@ export function BlackFridayBar({ remaining }: { remaining: number }) {
       <div className="wrap bf-inner">
         <div className="bf-copy">
           <strong>CONDIÇÃO DE <span>LANÇAMENTO</span></strong>
-          <small>{remaining > 0 ? 'Guia + 3 materiais por R$ 39,90' : 'A condição de lançamento terminou'}</small>
+          <small>{remaining > 0 ? 'Guia + 3 materiais por R$ 24,90' : 'A condição de lançamento terminou'}</small>
         </div>
         <div className="bf-time">
           <span>{remaining > 0 ? 'OFERTA EXPIRA EM' : 'OFERTA ENCERRADA'}</span>
@@ -83,33 +83,33 @@ export function UpgradeModal({ open, onClose, remaining, basicUrl, upgradeUrl, f
           </div>
         </div>
         <div className="upgrade-copy">
-          <span className="offer-tag">ANTES DE ESCOLHER SÓ O GUIA</span>
+          <span className="offer-tag">OFERTA RELÂMPAGO</span>
           <h2 id="upgrade-title">Leve a <em>experiência completa.</em></h2>
           <p>Além dos 23 movimentos, você recebe os três materiais para ir de bom a referência: palavras, conexão e presença.</p>
           {discounted ? (
             <>
               <div className="upgrade-price">
-                <span>Adicione apenas</span>
-                <strong>+ R$ 7,00</strong>
-                <small>Total de R$ 31,90 em vez de R$ 39,90</small>
+                <span>Adicione apenas + R$ 5,00</span>
+                <strong>R$ 19,90</strong>
+                <small>De R$ 24,90 por R$ 19,90 — economize R$ 5,00</small>
               </div>
               <div className="upgrade-timer">
-                <span>Essa condição desta visita termina em</span>
+                <span>Essa oferta relâmpago termina em</span>
                 <FlipClock remaining={remaining} compact />
               </div>
-              <CheckoutLink url={upgradeUrl} className="upgrade-main-cta">Quero o pacote por R$ 31,90</CheckoutLink>
+              <CheckoutLink url={upgradeUrl} className="upgrade-main-cta">Quero o pacote por R$ 19,90</CheckoutLink>
             </>
           ) : (
             <>
               <div className="upgrade-price">
-                <span>Condição especial encerrada</span>
-                <strong>R$ 39,90</strong>
+                <span>Oferta relâmpago encerrada</span>
+                <strong>R$ 24,90</strong>
                 <small>O pacote completo continua disponível pelo preço normal.</small>
               </div>
               <CheckoutLink url={fullUrl} className="upgrade-main-cta">Quero o pacote completo</CheckoutLink>
             </>
           )}
-          <CheckoutLink url={basicUrl} className="upgrade-basic-link">Continuar somente com o guia por R$ 24,90</CheckoutLink>
+          <CheckoutLink url={basicUrl} className="upgrade-basic-link">Continuar somente com o guia por R$ 14,90</CheckoutLink>
         </div>
       </div>
     </div>
