@@ -41,7 +41,7 @@ export function BlackFridayBar({ remaining }: { remaining: number }) {
       <div className="wrap bf-inner">
         <div className="bf-copy">
           <strong>CONDIÇÃO DE <span>LANÇAMENTO</span></strong>
-          <small>{remaining > 0 ? 'Guia + 3 materiais por R$ 24,90' : 'A condição de lançamento terminou'}</small>
+          <small>{remaining > 0 ? 'Pacote completo por R$ 19,90' : 'A condição de lançamento terminou'}</small>
         </div>
         <div className="bf-time">
           <span>{remaining > 0 ? 'OFERTA EXPIRA EM' : 'OFERTA ENCERRADA'}</span>
@@ -68,7 +68,6 @@ export function UpgradeModal({ open, onClose, remaining, basicUrl, upgradeUrl, f
     return () => { document.body.style.overflow = previous; document.removeEventListener('keydown', onKey); };
   }, [open, onClose]);
   if (!open) return null;
-  const discounted = remaining > 0;
   return (
     <div className="upgrade-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="upgrade-dialog" role="dialog" aria-modal="true" aria-labelledby="upgrade-title">
@@ -83,32 +82,22 @@ export function UpgradeModal({ open, onClose, remaining, basicUrl, upgradeUrl, f
           </div>
         </div>
         <div className="upgrade-copy">
-          <span className="offer-tag">OFERTA RELÂMPAGO</span>
+          <span className="offer-tag">OFERTA ESPECIAL</span>
           <h2 id="upgrade-title">Leve a <em>experiência completa.</em></h2>
           <p>Além dos 23 movimentos, você recebe os três materiais para ir de bom a referência: palavras, conexão e presença.</p>
-          {discounted ? (
-            <>
-              <div className="upgrade-price">
-                <span>Adicione apenas + R$ 5,00</span>
-                <strong>R$ 19,90</strong>
-                <small>De R$ 24,90 por R$ 19,90 — economize R$ 5,00</small>
-              </div>
-              <div className="upgrade-timer">
-                <span>Essa oferta relâmpago termina em</span>
-                <FlipClock remaining={remaining} compact />
-              </div>
-              <CheckoutLink url={upgradeUrl} className="upgrade-main-cta">Quero o pacote por R$ 19,90</CheckoutLink>
-            </>
-          ) : (
-            <>
-              <div className="upgrade-price">
-                <span>Oferta relâmpago encerrada</span>
-                <strong>R$ 24,90</strong>
-                <small>O pacote completo continua disponível pelo preço normal.</small>
-              </div>
-              <CheckoutLink url={fullUrl} className="upgrade-main-cta">Quero o pacote completo</CheckoutLink>
-            </>
-          )}
+          <div className="upgrade-price">
+            <span>Adicione apenas + R$ 5,00 ao seu pedido</span>
+            <div className="upgrade-price-row">
+              <s className="price-original">R$ 24,90</s>
+              <strong>R$ 19,90</strong>
+            </div>
+            <small>Economize R$ 5,00 — leve o pacote completo por R$ 19,90</small>
+          </div>
+          <div className="upgrade-timer">
+            <span>Essa condição especial termina em</span>
+            <FlipClock remaining={remaining} compact />
+          </div>
+          <CheckoutLink url={upgradeUrl} className="upgrade-main-cta">Sim, quero o pacote por R$ 19,90</CheckoutLink>
           <CheckoutLink url={basicUrl} className="upgrade-basic-link">Continuar somente com o guia por R$ 14,90</CheckoutLink>
         </div>
       </div>
