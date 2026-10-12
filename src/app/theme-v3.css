@@ -69,11 +69,8 @@ em { font-family: var(--serif); color: #ef2835; }
 .intro { position: relative; background: radial-gradient(circle at 50% 0, #2b0a0e 0, #111113 42%); }
 .intro:before, .bonuses:before, .offer:before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #b70518 32%, var(--gold) 50%, #a90919 68%, transparent); opacity: .75; }
 .intro-panel { background: linear-gradient(125deg, #1a1a1c, #101012); border-color: #5c4035; box-shadow: 0 20px 65px #0008, inset 0 1px 0 #d5b88716; }
-.halo { background: radial-gradient(circle, #b20a1b48, #b20a1b00 68%); }
 .magazine { box-shadow: 11px 17px 27px #000b, -2px 0 0 #c9a66f77; border: 1px solid #97764a; }
 .magazine:after { border-left-color: #03030388; }
-.phone { background: #050506; border-color: #080809; box-shadow: 0 15px 28px #000b; }
-.intro-visual>i { color: var(--gold); font-size: 22px; }
 .overline { color: var(--gold); }
 .intro-text h3 { color: #f5f1eb; }
 .intro-text>p { color: #bcb3b0; }
@@ -88,23 +85,13 @@ em { font-family: var(--serif); color: #ef2835; }
 .reason-grid .reason-wide { background: radial-gradient(ellipse at 78% 50%, #4f1019, #151113 65%); }
 .rail-buttons button { border-color: #7a5350; background: #211619; }
 .rail-buttons button:hover { background: #bc1020; }
-.chapter { background: #171719; border-color: #57403b; }
-.chapter-art, .chapter-1 .chapter-art, .chapter-2 .chapter-art, .chapter-3 .chapter-art { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 110%, #850b19 0, #1d1215 42%, #09090a 85%); }
-.chapter-art:before { border: 0; inset: auto -40px -70px; height: 165px; width: auto; border-radius: 50%; background: linear-gradient(140deg, #780715, #d51024 35%, #2b050b 65%, #09090b); transform: rotate(-12deg); opacity: .8; }
-.chapter-art:after { display: none; }
-.chapter-art span { color: var(--gold); font-size: 12px; }
-.chapter-art strong { position: relative; z-index: 2; color: #f1e8e3; font-family: var(--serif); font-weight: 600; font-size: 24px; letter-spacing: -.03em; text-align: center; text-shadow: 0 3px 8px #000; }
-.chapter-art i { position: absolute; z-index: 2; bottom: 13px; right: 15px; color: var(--gold); font-size: 10px; text-shadow: none; }
-.chapter-body { background: #1a1315; }
-.chapter-body small { color: var(--gold); }
-.chapter-body p { color: #bcb4b1; }
+/* Chapter cards now use final PNG images — see optimization.css for .chapter-card styles */
 
 .bonuses { position: relative; background: radial-gradient(circle at 72% 50%, #250a0f, #0d0d0f 60%); }
 .bonus-copy>p { color: #bcb4af; }
 .bonus-list span { color: var(--gold); border-color: #5a3c3b; }
 .bonus-list strong { color: #f0ebe5; }
-.stack-glow { background: radial-gradient(circle, #ab081b51 0, transparent 68%); }
-.bonus-stack .magazine { border-color: #ac824d; }
+/* Bonus visual now uses final PNG — see optimization.css for .bonus-visual styles */
 .inside { background: #171719; }
 .inside-grid article { background: #202023; border-color: #5a4641; }
 .inside-grid b { background: #7e111b; color: #ebd3ac; font-size: 12px; font-variant-numeric: tabular-nums; }
@@ -127,14 +114,8 @@ em { font-family: var(--serif); color: #ef2835; }
 .plan-full { border-color: var(--gold); background: linear-gradient(155deg, #3b0a11, #1a1516 46%, #121214); box-shadow: 0 0 0 1px #b89c6d22, 0 25px 65px #0009; }
 .plan-kicker { color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .18em; }
 .plan-ribbon { position: absolute; right: -48px; top: 25px; transform: rotate(38deg); padding: 5px 50px; background: linear-gradient(90deg, #ad101e, #e32532); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
-.plan-art { height: 188px; display: flex; align-items: center; justify-content: center; margin: 14px -10px 10px; background: radial-gradient(circle, #79121e5e, transparent 70%); }
-.plan-art .magazine { height: 160px; aspect-ratio: 2/3; transform: rotate(-5deg); }
-.plan-art-full { padding: 10px; }
-.plan-art-full img { height: 131px; width: 87px; object-fit: cover; box-shadow: 3px 7px 10px #0009; border: 1px solid #b39463; margin-left: -18px; }
-.plan-art-full img:first-child { height: 160px; width: 107px; margin-left: 0; z-index: 2; transform: rotate(-7deg); }
-.plan-art-full img:nth-child(2) { transform: rotate(4deg) translateY(8px); z-index: 3; }
-.plan-art-full img:nth-child(3) { transform: rotate(-2deg) translateY(10px); z-index: 4; }
-.plan-art-full img:nth-child(4) { transform: rotate(8deg) translateY(7px); z-index: 5; }
+.plan-art { display: flex; align-items: center; justify-content: center; margin: 14px -10px 10px; background: radial-gradient(circle, #79121e5e, transparent 70%); }
+/* Plan mockup styles in optimization.css (.plan-art-mockup) */
 .plan-card h3 { font-family: var(--serif); font-weight: 600; font-size: 34px; margin: 6px 0; }
 .plan-card>p { min-height: 49px; color: #bcb4b0; font-size: 13px; margin: 0 0 12px; }
 .plan-card .ticks { margin: 8px 0 16px; flex: 1; }
@@ -232,16 +213,11 @@ em { font-family: var(--serif); color: #ef2835; }
   .intro-panel { background: #1a1a1c; }
   .reason-grid .reason-wide { background: radial-gradient(circle at 90% 50%, #65111c, #1a1416 68%); }
   .reason-grid article { border-color: #624940; }
-  .chapter-art strong { font-size: 23px; }
-  .bonus-stack { height: 305px; }
   .inside-grid article { background: #202023; }
   .offers-grid { grid-template-columns: 1fr; max-width: 470px; gap: 17px; }
   .plan-card { padding: 25px; }
   .plan-card>p { min-height: auto; }
-  .plan-art { height: 160px; }
-  .plan-art .magazine { height: 145px; }
-  .plan-art-full img { height: 105px; width: 70px; }
-  .plan-art-full img:first-child { height: 145px; width: 97px; }
+  .plan-art { min-height: 160px; }
   .plan-card h3 { font-size: 30px; }
   .plan-price strong { font-size: 44px; }
   .upgrade-dialog { grid-template-columns: 1fr; max-width: 450px; }
@@ -262,10 +238,7 @@ em { font-family: var(--serif); color: #ef2835; }
   .bf-copy small { max-width: 93px; }
   .bf-link { display: none; }
   .hero h1 { font-size: 41px; }
-  .bonus-stack .magazine { width: 26%; }
-  .stack-one { left: 7%; }
-  .stack-two { left: 37%; }
-  .stack-three { left: 67%; }
+  /* Old bonus stack styles removed — using .bonus-visual now */
   .upgrade-copy { padding: 20px; }
   .upgrade-visual { min-height: 170px; }
   .upgrade-copy h2 { font-size: 29px; }

@@ -14,10 +14,24 @@ body { overflow-x: hidden; }
 .content-section { background: radial-gradient(circle at 90% 0, #30090e, #0b0b0d 50%); }
 .content-section .content-head { margin-bottom: 22px; }
 .content-note { color: #bbb2ad; font-size: 13px; text-align: center; max-width: 710px; margin: 20px auto 0; }
-.chapter-rail { scrollbar-width: thin; }
-.chapter { flex-basis: 250px; }
-.chapter-art { height: 118px; }
-.chapter-body { min-height: 132px; }
+
+/* Intro — guia + celular artwork */
+.intro-visual { height: auto; min-height: 280px; }
+.intro-artwork { display: block; width: 100%; max-width: 520px; height: auto; object-fit: contain; }
+
+/* Chapter cards — final PNG images in carousel */
+.chapter-rail { scrollbar-width: thin; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 16px; }
+.chapter-card { flex-shrink: 0; scroll-snap-align: start; width: 300px; }
+.chapter-card img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 14px; }
+
+/* Bonus — three materials artwork */
+.bonus-visual { display: flex; align-items: center; justify-content: center; }
+.bonus-visual img { display: block; width: 100%; max-width: 480px; height: auto; object-fit: contain; }
+
+/* Plan mockups — contain, no crop */
+.plan-art-mockup { display: flex; align-items: center; justify-content: center; height: auto; min-height: 220px; padding: 10px; }
+.plan-art-mockup img { display: block; width: 100%; max-width: 320px; height: auto; object-fit: contain; }
+
 .about { background: radial-gradient(circle at 78% 55%, #321017, #111113 58%); }
 .about-eyebrow { display: block; color: #ddd1c7; font-size: 13px; margin-top: 14px; }
 .about-copy h2 { margin: 2px 0 4px; }
@@ -30,11 +44,9 @@ body { overflow-x: hidden; }
 .about-copy p em { color: #f7eee8; font-style: italic; }
 .about-copy .pill-button { margin-top: 10px; }
 .about-photo { height: 460px; }
-.bonus-stack { height: 390px; }
 .bonuses .bonus-copy>p { color: #bcb4b0; }
 .bonus-list span { border-color: #5e4840; color: var(--gold); }
 .bonus-list strong { color: #f1e8df; }
-.bonuses .stack-glow { background: radial-gradient(circle, #8e102638, transparent 72%); }
 .testimonials { background: #0b0b0d; border-top: 1px solid #2a1d1e; overflow: hidden; }
 .testimonials .heading { margin-bottom: 24px; }
 .marquee-track { overflow: hidden; width: 100%; mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent); }
@@ -72,10 +84,13 @@ body { overflow-x: hidden; }
 .upgrade-copy .upgrade-footnote { margin: 9px auto 0; color: #aaa39a; font-size: 10px; }
 .upgrade-basic-link { color: #c3b9aa; font-size: 11px; margin-top: 5px; }
 .pill-button:focus-visible, button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #e8c88f; outline-offset: 3px; }
+
 @media (max-width: 900px) {
   .offer-assurance { grid-template-columns: auto 1fr; }
   .marquee-inner blockquote { width: 280px; }
+  .chapter-card { width: 280px; }
 }
+
 @media (max-width: 700px) {
   .launch-bar .wrap { min-height: 42px; gap: 9px; }
   .launch-bar strong { font-size: 8px; letter-spacing: .07em; }
@@ -88,17 +103,15 @@ body { overflow-x: hidden; }
   .hero-copy>small { font-size: 10px; line-height: 1.5; }
   .hero .pill-button { width: 100%; justify-content: space-between; }
   .intro-panel { padding-bottom: 25px; }
-  .intro-visual { height: 265px; }
-  .intro-cover { height: 225px; }
-  .phone { height: 160px; }
+  .intro-artwork { max-width: 340px; }
   .content-head h2 { font-size: clamp(32px, 8.8vw, 42px); }
-  .chapter { flex-basis: 220px; }
-  .chapter-art { height: 105px; }
-  .chapter-body { min-height: 135px; }
+  .chapter-card { width: 300px; }
   .about-layout { grid-template-columns: 1fr; }
   .about-stats { margin-bottom: 18px; }
   .about-photo { height: min(105vw, 430px); }
-  .bonus-stack { height: 280px; margin-top: 8px; }
+  .bonus-visual img { max-width: 340px; }
+  .plan-art-mockup { min-height: 180px; }
+  .plan-art-mockup img { max-width: 260px; }
   .marquee-inner blockquote { width: 265px; min-height: 185px; padding: 20px; }
   .offer-assurance { grid-template-columns: 1fr; gap: 5px; }
   .offer-assurance strong:not(:first-child) { margin-top: 8px; }
@@ -109,16 +122,15 @@ body { overflow-x: hidden; }
   .upgrade-price strong { font-size: 50px; }
   .upgrade-main-cta, .upgrade-main-cta.pill-disabled { min-height: 54px; padding: 10px 17px; font-size: 11px; }
 }
+
 @media (max-width: 390px) {
   .hero, .hero-wrap { min-height: 730px; }
   .hero h1 { font-size: 37px; }
   .hero-copy>p { font-size: 12px; }
-  .intro-visual { height: 235px; }
-  .intro-cover { height: 205px; }
-  .phone { height: 145px; }
+  .intro-artwork { max-width: 290px; }
+  .chapter-card { width: 280px; }
   .plan-card { padding: 20px; }
-  .plan-art-full img { width: 61px; height: 94px; margin-left: -12px; }
-  .plan-art-full img:first-child { width: 88px; height: 132px; }
+  .plan-art-mockup img { max-width: 220px; }
   .upgrade-copy { padding: 18px 16px 14px; }
   .upgrade-copy .offer-tag { max-width: calc(100% - 70px); padding: 6px 8px; font-size: 9px; letter-spacing: .04em; }
   .upgrade-copy h2 { font-size: 24px; }
