@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const A = '/assets/';
 const previews = [
@@ -12,30 +12,20 @@ const previews = [
 ];
 
 /**
- * Preview carousel with:
- * - Continuous auto-scroll at ~1.2x speed
- * - Pauses on hover, focus, or drag
- * - Direction reverses at edges (ping-pong)
- * - Mouse drag + touch swipe support
- * - Resumes smoothly after interaction
+ * Continuous infinite marquee carousel for guide preview pages.
+ * - Duplicates items for seamless infinite loop
+ * - CSS animation at 1.2x speed
+ * - Pauses on hover/focus
+ * - No scrollbar, no arrows
  * - Respects prefers-reduced-motion
  */
 export function PreviewCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [paused, setPaused] = useState(false);
-  const posRef = useRef(0);
-  const dirRef = useRef(-1); // -1 = left, 1 = right
-  const dragging = useRef(false);
-  const dragStart = useRef(0);
-  const posAtDragStart = useRef(0);
-  const rafRef = useRef<number>(0);
-  const lastTimeRef = useRef(0);
-
-  /* Detect prefers-reduced-motion */
   const [reducedMotion, setReducedMotion] = useState(() => {
     if (typeof window === 'undefined') return false;
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   });
+
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
@@ -43,77 +33,9 @@ export function PreviewCarousel() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  /* Auto-scroll animation loop */
-  useEffect(() => {
-    if (reducedMotion) return;
-    const track = trackRef.current;
-    if (!track) return;
-
-    const getSpeed = () => window.innerWidth < 700 ? 18 : 24; // px/s
-
-    const animate = (time: number) => {
-      if (!lastTimeRef.current) lastTimeRef.current = time;
-      const dt = (time - lastTimeRef.current) / 1000;
-      lastTimeRef.current = time;
-
-      if (!paused && !dragging.current) {
-        const speed = getSpeed();
-        posRef.current += dirRef.current * speed * dt;
-
-        const maxScroll = track.scrollWidth - track.clientWidth;
-        // Reverse at edges
-        if (posRef.current <= 0) {
-          posRef.current = 0;
-          dirRef.current = 1;
-        } else if (posRef.current >= maxScroll) {
-          posRef.current = maxScroll;
-          dirRef.current = -1;
-        }
-        track.scrollLeft = posRef.current;
-      }
-
-      rafRef.current = requestAnimationFrame(animate);
-    };
-
-    rafRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [paused, reducedMotion]);
-
-  /* Drag / swipe handlers */
-  const onPointerDown = useCallback((e: React.PointerEvent) => {
-    dragging.current = true;
-    dragStart.current = e.clientX;
-    posAtDragStart.current = posRef.current;
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
-  }, []);
-
-  const onPointerMove = useCallback((e: React.PointerEvent) => {
-    if (!dragging.current) return;
-    const delta = dragStart.current - e.clientX;
-    const track = trackRef.current;
-    if (!track) return;
-    const newPos = posAtDragStart.current + delta;
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    posRef.current = Math.max(0, Math.min(newPos, maxScroll));
-    track.scrollLeft = posRef.current;
-  }, []);
-
-  const onPointerUp = useCallback(() => {
-    dragging.current = false;
-  }, []);
-
-  /* Sync scroll position from manual scroll (scrollbar, keyboard) */
-  const onScroll = useCallback(() => {
-    if (!dragging.current) {
-      const track = trackRef.current;
-      if (track) posRef.current = track.scrollLeft;
-    }
-  }, []);
-
   if (reducedMotion) {
-    /* Static scrollable carousel for reduced-motion */
     return (
-      <div className="preview-track" ref={trackRef} onScroll={onScroll}>
+      <div className="preview-track-static">
         {previews.map((p, i) => (
           <div className="preview-card" key={i}>
             <img src={`${A}${p.src}`} alt={p.alt} />
@@ -124,24 +46,21 @@ export function PreviewCarousel() {
   }
 
   return (
-    <div
-      className="preview-track"
-      ref={trackRef}
-      onScroll={onScroll}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={() => setPaused(false)}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
-      onPointerCancel={onPointerUp}
-    >
-      {previews.map((p, i) => (
-        <div className="preview-card" key={i}>
-          <img src={`${A}${p.src}`} alt={p.alt} draggable={false} />
-        </div>
-      ))}
+    <div className="preview-marquee-outer">
+      <div className="preview-marquee-track" ref={trackRef}>
+        {/* Original set */}
+        {previews.map((p, i) => (
+          <div className="preview-card" key={`a-${i}`}>
+            <img src={`${A}${p.src}`} alt={p.alt} draggable={false} />
+          </div>
+        ))}
+        {/* Duplicate set for seamless loop */}
+        {previews.map((p, i) => (
+          <div className="preview-card" key={`b-${i}`} aria-hidden="true">
+            <img src={`${A}${p.src}`} alt="" draggable={false} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

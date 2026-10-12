@@ -32,14 +32,25 @@ body { overflow-x: hidden; }
 .plan-art-mockup { display: flex; align-items: center; justify-content: center; height: auto; min-height: 220px; padding: 10px; }
 .plan-art-mockup img { display: block; width: 100%; max-width: 320px; height: auto; object-fit: contain; }
 
-/* Preview section — "Veja por dentro do guia" */
+/* Preview section — "Veja por dentro do guia" — continuous marquee */
 .preview-section { background: #0b0b0d; border-top: 1px solid #2a1d1e; border-bottom: 1px solid #2a1d1e; }
-.preview-section .heading { margin-bottom: 18px; }
-.preview-subtitle { color: #b0a7a2; font-size: 13px; line-height: 1.55; max-width: 620px; margin: 0 auto; text-align: center; }
-.preview-track { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x proximity; padding: 4px 4px 18px; margin-top: 24px; scrollbar-width: thin; scrollbar-color: #5a3535 transparent; cursor: grab; -webkit-overflow-scrolling: touch; }
-.preview-track:active { cursor: grabbing; }
-.preview-card { flex-shrink: 0; scroll-snap-align: start; width: 300px; aspect-ratio: 4 / 5; border-radius: 10px; border: 1px solid #6e4545; overflow: hidden; box-shadow: 0 6px 18px #0005; background: #151517; display: flex; align-items: center; justify-content: center; }
+.preview-section .heading { margin-bottom: 14px; }
+.preview-subtitle { color: #b0a7a2; font-size: 13px; line-height: 1.55; max-width: 680px; margin: 0 auto; text-align: center; }
+.preview-real-badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 5px 14px; border-radius: 999px; background: #2a181e; border: 1px solid #6e4545; color: #e8c4a0; font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+.preview-real-badge span { color: #e82d3b; font-size: 13px; font-weight: 800; }
+
+/* Continuous marquee outer (masked, no scrollbar) */
+.preview-marquee-outer { overflow: hidden; margin-top: 20px; width: 100%; mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent); }
+/* Continuous marquee track — infinite scroll */
+.preview-marquee-track { display: flex; gap: 14px; width: max-content; animation: preview-marquee 38s linear infinite; animation-duration: calc(38s / 1.2); }
+.preview-marquee-outer:hover .preview-marquee-track { animation-play-state: paused; }
+.preview-card { flex-shrink: 0; width: 220px; aspect-ratio: 3 / 4; border-radius: 10px; border: 1px solid #6e4545; overflow: hidden; box-shadow: 0 6px 18px #0005; background: #151517; display: flex; align-items: center; justify-content: center; }
 .preview-card img { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; user-select: none; }
+/* Reduced-motion: static layout */
+.preview-track-static { display: flex; gap: 14px; overflow-x: auto; padding: 4px 0 12px; margin-top: 20px; scrollbar-width: none; }
+.preview-track-static::-webkit-scrollbar { display: none; }
+.preview-track-static .preview-card { width: 220px; aspect-ratio: 3 / 4; }
+@keyframes preview-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 .about { background: radial-gradient(circle at 78% 55%, #321017, #111113 58%); }
 .about-eyebrow { display: block; color: #ddd1c7; font-size: 13px; margin-top: 14px; }
@@ -98,7 +109,7 @@ body { overflow-x: hidden; }
   .offer-assurance { grid-template-columns: auto 1fr; }
   .marquee-inner blockquote { width: 280px; }
   .chapter-card { width: 280px; }
-  .preview-card { width: 280px; }
+  .preview-card { width: 200px; }
 }
 
 @media (max-width: 700px) {
@@ -116,8 +127,9 @@ body { overflow-x: hidden; }
   .intro-artwork { max-width: 340px; }
   .content-head h2 { font-size: clamp(32px, 8.8vw, 42px); }
   .chapter-card { width: 300px; }
-  .preview-card { width: 72vw; max-width: 320px; }
+  .preview-card { width: 55vw; max-width: 240px; }
   .preview-subtitle { font-size: 12px; }
+  .preview-real-badge { font-size: 10px; padding: 4px 10px; }
   .about-layout { grid-template-columns: 1fr; }
   .about-stats { margin-bottom: 18px; }
   .about-photo { height: min(105vw, 430px); }
