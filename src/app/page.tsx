@@ -107,7 +107,7 @@ export default function Home() {
       <div id="conteudo" className="wrap content-block" data-reveal><div className="content-head"><div><Kicker>POR DENTRO DO MATERIAL</Kicker><h2>O que você vai <em>dominar</em><br />no Código do Toque?</h2></div><div className="rail-buttons"><button type="button" aria-label="Ver capítulos anteriores" onClick={() => rail.current?.scrollBy({ left: -310, behavior: 'smooth' })}>←</button><button type="button" aria-label="Ver próximos capítulos" onClick={() => rail.current?.scrollBy({ left: 310, behavior: 'smooth' })}>→</button></div></div><div className="chapter-rail" ref={rail}>{chapters.map(([num,word,title,body],index) => <article className={`chapter chapter-${index}`} key={num}><div className="chapter-art"><span>{num}</span><strong>{word}</strong><i>◆</i></div><div className="chapter-body"><small>CAPÍTULO {num}</small><h3>{title}</h3><p>{body}</p></div></article>)}</div></div><div className="notch" /></section>
 
     {/* BEFORE/AFTER - NOVA SEÇÃO */}
-    <section className="before-after pad-small"><div className="wrap" data-reveal>
+    <section className="before-after"><div className="wrap" data-reveal>
       <div className="heading centered"><Kicker>O RESULTADO</Kicker><h2>O que muda quando você<br /><em>aprende a conduzir.</em></h2></div>
       <div className="before-after-grid">
         <div className="before-col"><h3>Antes</h3><ul className="before-after-list">{beforeItems.map(item => <li key={item}>{item}</li>)}</ul></div>
