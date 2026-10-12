@@ -35,13 +35,15 @@ body { overflow-x: hidden; }
 .bonus-list span { border-color: #5e4840; color: var(--gold); }
 .bonus-list strong { color: #f1e8df; }
 .bonuses .stack-glow { background: radial-gradient(circle, #8e102638, transparent 72%); }
-.testimonials { background: #0b0b0d; border-top: 1px solid #2a1d1e; }
+.testimonials { background: #0b0b0d; border-top: 1px solid #2a1d1e; overflow: hidden; }
 .testimonials .heading { margin-bottom: 24px; }
-.testimonial-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(265px, 32%); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 16px; scrollbar-color: #8c4c48 transparent; }
-.testimonial-rail blockquote { margin: 0; scroll-snap-align: start; min-height: 210px; padding: 23px; border: 1px solid #60413f; border-radius: 16px; background: linear-gradient(150deg, #221719, #141316); display: flex; flex-direction: column; }
-.testimonial-rail blockquote span { color: #e92634; letter-spacing: .12em; font-size: 15px; }
-.testimonial-rail blockquote p { font-size: 14px; line-height: 1.6; margin: 13px 0 20px; color: #eee7e2; }
-.testimonial-rail cite { font-style: normal; color: var(--gold); font-size: 12px; margin-top: auto; text-align: right; }
+.marquee-track { overflow: hidden; width: 100%; mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent); }
+.marquee-inner { display: flex; gap: 14px; width: max-content; animation: marquee-scroll 60s linear infinite; animation-duration: calc(60s / 1.5); }
+.marquee-inner blockquote { margin: 0; flex-shrink: 0; width: 295px; min-height: 210px; padding: 23px; border: 1px solid #60413f; border-radius: 16px; background: linear-gradient(150deg, #221719, #141316); display: flex; flex-direction: column; }
+.marquee-inner blockquote span { color: #e92634; letter-spacing: .12em; font-size: 15px; }
+.marquee-inner blockquote p { font-size: 14px; line-height: 1.6; margin: 13px 0 20px; color: #eee7e2; }
+.marquee-inner cite { font-style: normal; color: var(--gold); font-size: 12px; margin-top: auto; text-align: right; }
+@keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .offer { scroll-margin-top: 10px; }
 .offer-assurance { display: grid; grid-template-columns: auto 1fr auto 1fr; align-items: center; gap: 12px; max-width: 940px; margin: 25px auto 0; padding: 17px 20px; background: #19191b; border: 1px solid #51493f; border-radius: 14px; }
 .offer-assurance strong { color: #cbb17d; font-size: 12px; white-space: nowrap; }
@@ -72,7 +74,7 @@ body { overflow-x: hidden; }
 .pill-button:focus-visible, button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #e8c88f; outline-offset: 3px; }
 @media (max-width: 900px) {
   .offer-assurance { grid-template-columns: auto 1fr; }
-  .testimonial-rail { grid-auto-columns: minmax(265px, 47%); }
+  .marquee-inner blockquote { width: 280px; }
 }
 @media (max-width: 700px) {
   .launch-bar .wrap { min-height: 42px; gap: 9px; }
@@ -97,8 +99,7 @@ body { overflow-x: hidden; }
   .about-stats { margin-bottom: 18px; }
   .about-photo { height: min(105vw, 430px); }
   .bonus-stack { height: 280px; margin-top: 8px; }
-  .testimonial-rail { grid-auto-columns: minmax(250px, 84%); }
-  .testimonial-rail blockquote { min-height: 185px; padding: 20px; }
+  .marquee-inner blockquote { width: 265px; min-height: 185px; padding: 20px; }
   .offer-assurance { grid-template-columns: 1fr; gap: 5px; }
   .offer-assurance strong:not(:first-child) { margin-top: 8px; }
   .faq-list summary { min-height: 62px; }

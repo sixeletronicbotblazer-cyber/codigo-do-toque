@@ -270,4 +270,4 @@ em { font-family: var(--serif); color: #ef2835; }
   .upgrade-visual { min-height: 170px; }
   .upgrade-copy h2 { font-size: 29px; }
 }
-@media (prefers-reduced-motion: reduce) { .purchase-toast, [data-reveal].visible { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .purchase-toast, [data-reveal].visible, .marquee-inner { animation: none; } }
