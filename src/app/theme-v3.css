@@ -207,8 +207,8 @@ em { font-family: var(--serif); color: #ef2835; }
 .upgrade-covers img:nth-child(4) { z-index: 7; transform: rotate(9deg) translateY(30px); }
 .upgrade-copy { padding: 48px 43px 38px; }
 .offer-tag { display: inline-block; background: #4f151b; color: var(--gold-soft); border: 1px solid #79503d; border-radius: 999px; padding: 7px 12px; font-size: 10px; font-weight: 700; letter-spacing: .11em; }
-.upgrade-copy h2 { font-size: 38px; margin: 15px 0 10px; }
-.upgrade-copy>p { font-size: 13px; color: #c7bbb6; }
+.upgrade-copy h2 { font-size: 36px; margin: 12px 0 8px; }
+.upgrade-copy>p { font-size: 14px; color: #e0d8d2; font-weight: 600; line-height: 1.35; }
 .upgrade-price { display: flex; flex-direction: column; border-top: 1px solid #715245; margin: 18px 0 12px; padding-top: 14px; }
 .upgrade-price>span { color: #d9c9bc; font-size: 12px; }
 .upgrade-price strong { color: #f4e6d8; font-size: 36px; line-height: 1.2; letter-spacing: -.04em; }

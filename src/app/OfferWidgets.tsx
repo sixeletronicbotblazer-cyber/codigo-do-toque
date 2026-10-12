@@ -82,23 +82,23 @@ export function UpgradeModal({ open, onClose, remaining, basicUrl, upgradeUrl, f
           </div>
         </div>
         <div className="upgrade-copy">
-          <span className="offer-tag">OFERTA ESPECIAL</span>
-          <h2 id="upgrade-title">Leve a <em>experiência completa.</em></h2>
-          <p>Além dos 23 movimentos, você recebe os três materiais para ir de bom a referência: palavras, conexão e presença.</p>
+          <span className="offer-tag">ANTES DE SAIR</span>
+          <h2 id="upgrade-title">Só o toque <em>não basta.</em></h2>
+          <p>Palavras, conexão e presença — o que transforma movimento em entrega.</p>
           <div className="upgrade-price">
-            <span>Adicione apenas + R$ 5,00 ao seu pedido</span>
+            <span>+ R$ 5,00 e tenha o método completo</span>
             <div className="upgrade-price-row">
               <s className="price-original">R$ 24,90</s>
               <strong>R$ 19,90</strong>
             </div>
-            <small>Economize R$ 5,00 — leve o pacote completo por R$ 19,90</small>
+            <small>Economize R$ 5,00 na condição de lançamento</small>
           </div>
           <div className="upgrade-timer">
-            <span>Essa condição especial termina em</span>
+            <span>Disponível por tempo limitado</span>
             <FlipClock remaining={remaining} compact />
           </div>
-          <CheckoutLink url={upgradeUrl} className="upgrade-main-cta">Sim, quero o pacote por R$ 19,90</CheckoutLink>
-          <CheckoutLink url={basicUrl} className="upgrade-basic-link">Continuar somente com o guia por R$ 14,90</CheckoutLink>
+          <CheckoutLink url={upgradeUrl} className="upgrade-main-cta">Quero o método completo</CheckoutLink>
+          <CheckoutLink url={basicUrl} className="upgrade-basic-link">Continuar só com o guia por R$ 14,90</CheckoutLink>
         </div>
       </div>
     </div>
