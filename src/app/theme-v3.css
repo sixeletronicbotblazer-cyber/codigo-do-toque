@@ -120,18 +120,11 @@ em { font-family: var(--serif); color: #ef2835; }
 .marquee { background: #8c0c19; color: #f9eeeb; border-color: #ad5a3f; }
 .marquee.second { background: #181719; border-color: #876b4b; color: var(--gold-soft); }
 
-/* Three-plan pricing strategy with anchor price. */
+/* Two clear plans, matching upgrade modal. */
 .offer { position: relative; background: radial-gradient(circle at 50% 42%, #4b0913 0, #0b0a0c 70%); }
 .offers-grid { max-width: 940px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
-.offers-three { max-width: 1080px; grid-template-columns: 1fr 1.25fr 1fr; }
 .plan-card { position: relative; display: flex; flex-direction: column; padding: 27px 30px 29px; border-radius: 17px; overflow: hidden; border: 1px solid #655044; background: linear-gradient(150deg, #242426, #111113); box-shadow: 0 25px 45px #0006; }
 .plan-full { border-color: var(--gold); background: linear-gradient(155deg, #3b0a11, #1a1516 46%, #121214); box-shadow: 0 0 0 1px #b89c6d22, 0 25px 65px #0009; }
-.plan-recommended { border-color: var(--gold); box-shadow: 0 0 0 2px #c9a66f55, 0 0 40px #c9a66f22, 0 25px 65px #0009; transform: scale(1.03); z-index: 2; }
-.plan-regular { border-color: #48413a; opacity: .72; }
-.plan-regular .plan-price strong { color: #8d8480; }
-.plan-regular .plan-button { background: #1a1a1c; border: 1px solid #48413a; box-shadow: none; color: #8d8480; cursor: default; }
-.plan-regular .plan-button:hover { box-shadow: none; background: #1a1a1c; }
-.price-compare { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .price-original { color: #8d8480; font-size: 18px; text-decoration: line-through; text-decoration-color: #ef2835; font-weight: 600; letter-spacing: -.02em; }
 .plan-kicker { color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .18em; }
 .plan-ribbon { position: absolute; right: -48px; top: 25px; transform: rotate(38deg); padding: 5px 50px; background: linear-gradient(90deg, #ad101e, #e32532); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
@@ -270,8 +263,6 @@ em { font-family: var(--serif); color: #ef2835; }
   .bonus-stack { height: 305px; }
   .inside-grid article { background: #202023; }
   .offers-grid { grid-template-columns: 1fr; max-width: 470px; gap: 17px; }
-  .offers-three { max-width: 470px; }
-  .plan-recommended { transform: none; }
   .plan-card { padding: 25px; }
   .plan-card>p { min-height: auto; }
   .plan-art { height: 160px; }

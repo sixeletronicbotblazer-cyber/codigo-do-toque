@@ -23,7 +23,7 @@ const faqs = [
   ['Preciso ter parceira fixa?', 'Não. Os princípios valem para relacionamento sério ou encontros casuais.'],
   ['É promessa milagrosa?', 'Não. É método, e método exige prática. Quanto mais você aplica, mais natural fica.'],
   ['Quando recebo os arquivos?', 'Por e-mail, logo após a confirmação do pagamento.'],
-  ['Como funciona o upgrade?', 'No plano Essencial, você pode adicionar os 3 materiais por R$ 5 a mais, e leva o Pacote Completo por R$ 19,90 em vez de R$ 24,90.'],
+  ['Como funciona o upgrade?', 'No plano Essencial, você pode adicionar os 3 materiais por R$ 5 a mais, e levar o Pacote Completo por R$ 19,90 em vez de R$ 24,90.'],
 ];
 const beforeItems = [
   'Repete a mesma sequência e torce para dar certo',
@@ -144,7 +144,7 @@ export default function Home() {
 
     {/* BUNDLE: COMECE PELO GUIA */}
     <section className="bundle dark pad"><div className="wrap" data-reveal>
-      <div className="heading centered"><Kicker>ESCOLHA POR ONDE COMEÇAR</Kicker><h2>Comece pelo guia.<br /><em>Ou leve a coleção inteira.</em></h2><p>O conteúdo principal é o mesmo nos dois planos. O Pacote Completo soma 3 materiais para você chegar mais longe — e na condição de lançamento, sai por R$ 19,90.</p></div>
+      <div className="heading centered"><Kicker>ESCOLHA POR ONDE COMEÇAR</Kicker><h2>Comece pelo guia.<br /><em>Ou leve a coleção inteira.</em></h2><p>O conteúdo principal é o mesmo nos dois planos. O Pacote Completo soma 3 materiais para você chegar mais longe.</p></div>
       <div className="bundle-grid">
         <article><div className="bundle-picture"><Cover /></div><div className="bundle-caption"><small>PLANO ESSENCIAL</small><h3>Só o guia</h3><p>23 movimentos em sequência visual, com preparo, ritmo e atenção.</p></div></article>
         <article><div className="bundle-picture bonus-picture"><img src={`${A}v3-bonus-palavras.webp`} alt="" /><img src={`${A}v3-bonus-conexao.webp`} alt="" /><img src={`${A}v3-bonus-tantra.webp`} alt="" /></div><div className="bundle-caption"><small>PACOTE COMPLETO</small><h3>Guia + três bônus</h3><p>Palavras, conexão e presença para levar o encontro ao próximo nível.</p></div></article>
@@ -156,8 +156,8 @@ export default function Home() {
 
     {/* OFERTA: DOIS PLANOS */}
     <section id="oferta" className="offer dark pad"><div className="wrap" data-reveal>
-      <div className="heading centered"><Kicker>ESCOLHA SUA OFERTA</Kicker><h2>Três planos. <em>O começo é o mesmo.</em></h2><p>Pagamento único. Entrega por e-mail logo após a confirmação.</p></div>
-      <div className="offers-grid offers-three">
+      <div className="heading centered"><Kicker>ESCOLHA SUA OFERTA</Kicker><h2>Dois caminhos. <em>O mesmo começo.</em></h2><p>Pagamento único. Entrega por e-mail logo após a confirmação.</p></div>
+      <div className="offers-grid">
         <article className="plan-card plan-basic">
           <span className="plan-kicker">01 / O ESSENCIAL</span>
           <div className="plan-art"><Cover /></div>
@@ -168,26 +168,16 @@ export default function Home() {
           <button type="button" className="pill-button plan-button" onClick={() => setUpgradeOpen(true)}>Quero o guia <b>↗</b></button>
           <small className="plan-note">Menos que um combo de delivery. Para a vida inteira.</small>
         </article>
-        <article className="plan-card plan-full plan-recommended">
-          <span className="plan-ribbon">RECOMENDADO</span>
+        <article className="plan-card plan-full">
+          <span className="plan-ribbon">MAIS CONTEÚDO</span>
           <span className="plan-kicker">02 / EXPERIÊNCIA COMPLETA</span>
           <div className="plan-art plan-art-full"><img src={`${A}v3-main-cover.webp`} alt="Capa Código do Toque" /><img src={`${A}v3-bonus-palavras.webp`} alt="" /><img src={`${A}v3-bonus-conexao.webp`} alt="" /><img src={`${A}v3-bonus-tantra.webp`} alt="" /></div>
           <h3>Pacote Completo</h3>
           <p>O guia + 3 materiais para você dominar a condução inteira.</p>
           <ul className="ticks"><li>Guia com 23 movimentos</li><li>Palavras que Aproximam</li><li>Conexão em Duas Vias</li><li>Tantra sem Complicação</li></ul>
-          <div className="plan-price"><small>Pagamento único</small><div className="price-compare"><s className="price-original">R$ 24,90</s><strong><span>R$</span> 19,90</strong></div></div>
-          <CheckoutLink url={upgradeUrl} className="plan-button">Quero o pacote completo</CheckoutLink>
-          <small className="plan-note">Só R$ 5 a mais que o Essencial. Economize R$ 5,00.</small>
-        </article>
-        <article className="plan-card plan-regular">
-          <span className="plan-kicker">03 / PREÇO NORMAL</span>
-          <div className="plan-art plan-art-full"><img src={`${A}v3-main-cover.webp`} alt="Capa Código do Toque" /><img src={`${A}v3-bonus-palavras.webp`} alt="" /><img src={`${A}v3-bonus-conexao.webp`} alt="" /><img src={`${A}v3-bonus-tantra.webp`} alt="" /></div>
-          <h3>Pacote Completo</h3>
-          <p>O mesmo conteúdo do plano Recomendado, pelo preço regular.</p>
-          <ul className="ticks"><li>Guia com 23 movimentos</li><li>Palavras que Aproximam</li><li>Conexão em Duas Vias</li><li>Tantra sem Complicação</li></ul>
           <div className="plan-price"><small>Pagamento único</small><strong><span>R$</span> 24,90</strong></div>
-          <CheckoutLink url={fullUrl} className="plan-button">Pacote pelo preço normal</CheckoutLink>
-          <small className="plan-note">Sem desconto de lançamento.</small>
+          <CheckoutLink url={fullUrl} className="plan-button">Quero o pacote completo</CheckoutLink>
+          <small className="plan-note">Só R$ 10 a mais para levar 3 materiais.</small>
         </article>
       </div>
     </div></section>
@@ -268,7 +258,7 @@ export default function Home() {
       <div className="heading centered"><Kicker>A ESCOLHA É SUA</Kicker><h2>Continuar no automático<br /><em>ou ser o homem que ela não esquece?</em></h2></div>
       <p style={{color:'#bbb4b0',maxWidth:'500px',margin:'0 auto',fontSize:'14px'}}>Por menos que um jantar, você leva o método para a vida toda.</p>
       <div className="final-cta-buttons">
-        <CheckoutLink url={upgradeUrl} className="">Quero o pacote por R$ 19,90</CheckoutLink>
+        <CheckoutLink url={fullUrl} className="">Quero o pacote completo</CheckoutLink>
         <CheckoutLink url={basicUrl} className="">Só o guia por R$ 14,90</CheckoutLink>
       </div>
       <div className="final-cta-micro">Acesso imediato <span>•</span> Garantia de 7 dias <span>•</span> Compra discreta</div>
