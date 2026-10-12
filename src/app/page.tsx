@@ -195,19 +195,55 @@ export default function Home() {
     {/* ENTREGA */}
     <section className="delivery dark"><div className="wrap delivery-layout" data-reveal><div className="mail-icon">✉</div><div><Kicker>ENTREGA DIGITAL</Kicker><h2>Compre. Receba por e-mail.<br /><em>Abra onde preferir.</em></h2><p>Depois da confirmação do pagamento, os arquivos do seu plano chegam no e-mail informado. Acesso imediato, sem cadastro extra.</p></div></div><div className="notch" /></section>
 
-    {/* SOBRE MARINA */}
+    {/* EXPERT: QUEM CRIOU ESSE MÉTODO */}
     <section className="about light pad"><div className="wrap about-layout" data-reveal>
       <div className="about-copy">
-        <Kicker>QUEM APRESENTA</Kicker>
-        <h2>Prazer,<br /><em>Marina.</em></h2>
-        <p>A maioria dos guias é escrita por homens, para homens, e ignora o que importa: o que ela sente, percebe e lembra. Marina apresenta o Código do Toque com esse olhar. O que cria conexão, o que quebra o clima, e o que faz ela querer de novo.</p>
-        <ul>
-          <li>Linguagem direta, sem roteiro engessado</li>
-          <li>Conteúdo organizado para consultar sem pressa</li>
-          <li>Presença e comunicação como parte da experiência</li>
-        </ul>
+        <Kicker>QUEM CRIOU ESSE MÉTODO</Kicker>
+        <span className="about-overline">Sua guia</span>
+        <h2>Luna Amaral</h2>
+        <span className="about-title">Terapeuta Tântrica · 6 anos de prática clínica</span>
+        <div className="about-stats">
+          <div><strong>6+</strong><span>anos</span></div>
+          <div><strong>500+</strong><span>casais</span></div>
+          <div><strong>23</strong><span>movimentos</span></div>
+        </div>
+        <p>Nos meus anos de atendimento, o que mais ouvi de mulheres foi: <em>"Ele é bom, mas falta algo que não sei explicar."</em></p>
+        <p>E de homens: <em>"Eu quero ser melhor pra ela. Só não sei o que fazer diferente."</em></p>
+        <p>Esse método nasceu exatamente daí. São 23 movimentos testados com casais reais — não teoria. Prática clínica que qualquer homem pode aplicar hoje à noite.</p>
       </div>
-      <div className="about-photo"><img src={`${A}v5-expert.webp`} alt="Retrato profissional de Marina em estúdio, com postura confiante e braços cruzados" /><div><span>CÓDIGO DO TOQUE</span><strong>Marina</strong></div></div>
+      <div className="about-photo"><img src={`${A}v5-expert.webp`} alt="Retrato profissional de Luna Amaral, terapeuta tântrica e criadora do método Código do Toque" /><div><span>CÓDIGO DO TOQUE</span><strong>Luna Amaral</strong></div></div>
+    </div></section>
+
+    {/* RESULTADOS REAIS - TESTEMUNHOS */}
+    <section className="testimonials dark pad-small"><div className="wrap" data-reveal>
+      <div className="heading centered"><Kicker>RESULTADOS REAIS</Kicker><h2>Homens que transformaram<br /><em>sua intimidade:</em></h2></div>
+      <div className="testimonials-grid">
+        <article className="testimonial-card">
+          <div className="stars">★★★★★</div>
+          <p>"Nunca pensei que poderia fazer tanta diferença. Ela me olha de um jeito completamente novo agora."</p>
+          <span className="testimonial-author">— Carlos M., 34 anos</span>
+        </article>
+        <article className="testimonial-card">
+          <div className="stars">★★★★★</div>
+          <p>"As técnicas são simples, mas o resultado é impressionante. Nossa conexão está muito mais intensa."</p>
+          <span className="testimonial-author">— Roberto S., 41 anos</span>
+        </article>
+        <article className="testimonial-card">
+          <div className="stars">★★★★★</div>
+          <p>"Finalmente me sinto confiante. Ela me disse que nunca se sentiu tão especial."</p>
+          <span className="testimonial-author">— Eduardo T., 29 anos</span>
+        </article>
+        <article className="testimonial-card">
+          <div className="stars">★★★★★</div>
+          <p>"Isso mudou completamente meu jogo. Ela não consegue parar de pensar nos nossos momentos."</p>
+          <span className="testimonial-author">— Felipe R., 27 anos</span>
+        </article>
+        <article className="testimonial-card">
+          <div className="stars">★★★★★</div>
+          <p>"Eu estava perdendo ela... depois desses movimentos, nossa paixão voltou mais forte que nunca."</p>
+          <span className="testimonial-author">— Gabriel M., 36 anos</span>
+        </article>
+      </div>
     </div></section>
 
     {/* FAQ */}
