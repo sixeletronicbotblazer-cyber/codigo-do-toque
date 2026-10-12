@@ -26,7 +26,7 @@ export function UpgradeModal({ open, onClose, basicUrl, upgradeUrl }: { open: bo
         <p>Você já escolheu o Código do Toque. Acrescente os três materiais de apoio e receba os quatro PDFs por um único pagamento:</p>
         <ul className="upgrade-list">
           <li>Palavras que Aproximam</li>
-          <li>Conexão em Duas Vias</li>
+          <li>Conexão a Dois</li>
           <li>Tantra sem Complicação</li>
         </ul>
         <div className="upgrade-price">

@@ -24,13 +24,21 @@ body { overflow-x: hidden; }
 .chapter-card { flex-shrink: 0; scroll-snap-align: start; width: 300px; }
 .chapter-card img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 14px; }
 
-/* Bonus — three materials artwork */
+/* Bonus — three materials mockup (new PNG, object-fit contain) */
 .bonus-visual { display: flex; align-items: center; justify-content: center; }
-.bonus-visual img { display: block; width: 100%; max-width: 480px; height: auto; object-fit: contain; }
+.bonus-visual img { display: block; width: 100%; max-width: 520px; height: auto; object-fit: contain; }
+/* Bonus list — PDF badge */
+.bonus-list small { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .08em; color: #cbb17d; margin-left: 4px; vertical-align: middle; }
 
 /* Plan mockups — contain, no crop */
 .plan-art-mockup { display: flex; align-items: center; justify-content: center; height: auto; min-height: 220px; padding: 10px; }
 .plan-art-mockup img { display: block; width: 100%; max-width: 320px; height: auto; object-fit: contain; }
+/* Plan art — composed two-layer (guia front-left, bonus behind-right) */
+.plan-art-composed { position: relative; display: flex; align-items: center; justify-content: center; height: auto; min-height: 260px; padding: 10px; }
+.plan-art-composed .plan-art-back { position: absolute; right: 5%; width: 68%; max-width: 260px; height: auto; object-fit: contain; opacity: .72; z-index: 1; }
+.plan-art-composed .plan-art-front { position: relative; left: -5%; width: 55%; max-width: 210px; height: auto; object-fit: contain; z-index: 2; }
+/* PDF badge in ticks list */
+.ticks small { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .08em; color: #cbb17d; margin-left: 4px; vertical-align: middle; }
 
 /* Preview section — "Veja por dentro do guia" — continuous marquee */
 .preview-section { background: #0b0b0d; border-top: 1px solid #2a1d1e; border-bottom: 1px solid #2a1d1e; }
@@ -136,6 +144,9 @@ body { overflow-x: hidden; }
   .bonus-visual img { max-width: 340px; }
   .plan-art-mockup { min-height: 180px; }
   .plan-art-mockup img { max-width: 260px; }
+  .plan-art-composed { min-height: 220px; }
+  .plan-art-composed .plan-art-back { max-width: 200px; }
+  .plan-art-composed .plan-art-front { max-width: 170px; }
   .marquee-inner blockquote { width: 265px; min-height: 185px; padding: 20px; }
   .offer-assurance { grid-template-columns: 1fr; gap: 5px; }
   .offer-assurance strong:not(:first-child) { margin-top: 8px; }
@@ -155,6 +166,9 @@ body { overflow-x: hidden; }
   .chapter-card { width: 280px; }
   .plan-card { padding: 20px; }
   .plan-art-mockup img { max-width: 220px; }
+  .plan-art-composed { min-height: 190px; }
+  .plan-art-composed .plan-art-back { max-width: 170px; width: 60%; }
+  .plan-art-composed .plan-art-front { max-width: 140px; width: 50%; }
   .upgrade-copy { padding: 18px 16px 14px; }
   .upgrade-copy .offer-tag { max-width: calc(100% - 70px); padding: 6px 8px; font-size: 9px; letter-spacing: .04em; }
   .upgrade-copy h2 { font-size: 24px; }
