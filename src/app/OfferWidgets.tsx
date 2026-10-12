@@ -1,9 +1,10 @@
 'use client';
 import { useEffect } from 'react';
+import { pixelInitCheckoutUpgrade, pixelInitCheckoutBasic } from '@/lib/pixel';
 
-export function CheckoutLink({ url, children, className = '' }: { url?: string; children: React.ReactNode; className?: string }) {
+export function CheckoutLink({ url, children, className = '', onClick }: { url?: string; children: React.ReactNode; className?: string; onClick?: () => void }) {
   if (!url) return <button type="button" className={`pill-button pill-disabled ${className}`} disabled title="Adicione o link de checkout desta oferta antes de publicar">{children}<b>↗</b></button>;
-  return <a className={`pill-button ${className}`} href={url} target="_blank" rel="noopener noreferrer">{children}<b>↗</b></a>;
+  return <a className={`pill-button ${className}`} href={url} target="_blank" rel="noopener noreferrer" onClick={onClick}>{children}<b>↗</b></a>;
 }
 
 export function UpgradeModal({ open, onClose, basicUrl, upgradeUrl }: { open: boolean; onClose: () => void; basicUrl?: string; upgradeUrl?: string }) {
@@ -35,9 +36,9 @@ export function UpgradeModal({ open, onClose, basicUrl, upgradeUrl }: { open: bo
           <strong>R$ 19,90</strong>
           <span className="upgrade-price-pill">SÓ R$ 5,00 A MAIS QUE O GUIA</span>
         </div>
-        <CheckoutLink url={upgradeUrl} className="upgrade-main-cta">Sim, quero o pacote completo</CheckoutLink>
+        <CheckoutLink url={upgradeUrl} className="upgrade-main-cta" onClick={pixelInitCheckoutUpgrade}>Sim, quero o pacote completo</CheckoutLink>
         <p className="upgrade-footnote">Pagamento único · Garantia de 7 dias · Entrega por e-mail</p>
-        <CheckoutLink url={basicUrl} className="upgrade-basic-link">Não, quero só o guia por R$ 14,90</CheckoutLink>
+        <CheckoutLink url={basicUrl} className="upgrade-basic-link" onClick={pixelInitCheckoutBasic}>Não, quero só o guia por R$ 14,90</CheckoutLink>
       </div>
     </div>
   </div>;
