@@ -1,6 +1,31 @@
 /* Focused sales flow over the existing black, red, gold visual system. */
 html { scroll-padding-top: 24px; }
 body { overflow-x: hidden; }
+
+/* Age gate — 18+ verification overlay */
+main.age-gated { filter: blur(18px) saturate(.8); pointer-events: none; user-select: none; }
+.age-gate { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; background: radial-gradient(ellipse at 50% 30%, #2e0a1490, #0a05088f 70%), #0a0508; background-blend-mode: normal; animation: age-gate-in .35s ease-out both; }
+.age-gate-card { width: min(470px, 100%); text-align: center; padding: 34px 30px 28px; border-radius: 20px; border: 1px solid #6e4545; background: linear-gradient(160deg, #26161b, #14100f 78%); box-shadow: 0 30px 80px #000c, inset 0 1px 0 #ffffff12; color: #f3e9e2; }
+.age-gate-diamond { display: inline-block; color: #e82d3b; font-size: 30px; line-height: 1; margin-bottom: 10px; }
+.age-gate-kicker { display: block; font-size: 10px; font-weight: 700; letter-spacing: .19em; color: #cbb17d; margin-bottom: 6px; }
+.age-gate-card h2 { font-family: var(--sans); font-size: clamp(26px, 5vw, 33px); font-weight: 800; line-height: 1.12; letter-spacing: -.04em; margin: 8px 0 12px; color: #fbf5f0; }
+.age-gate-card h2 em { color: #e82d3b; font-style: italic; }
+.age-gate-card>p { max-width: 380px; margin: 0 auto 20px; font-size: 13.5px; line-height: 1.6; color: #cfc3bc; }
+.age-gate-actions { display: flex; flex-direction: column; gap: 10px; max-width: 340px; margin: 0 auto; }
+.age-gate-yes { display: inline-flex; align-items: center; justify-content: center; gap: 20px; width: 100%; min-height: 56px; padding: 14px 24px; border-radius: 999px; border: 1px solid #ff5f6e; color: #fff; font-weight: 700; font-size: 14px; background: linear-gradient(115deg, #a7134d, #ff2a7c); box-shadow: 0 10px 28px #e9277055, inset 0 1px 0 #ffffff5c; transition: transform .2s, box-shadow .2s; }
+.age-gate-yes b { font-size: 16px; font-weight: 400; }
+.age-gate-yes:hover { transform: translateY(-2px); box-shadow: 0 14px 34px #e9277080; }
+.age-gate-no { display: inline-flex; align-items: center; justify-content: center; width: 100%; min-height: 46px; padding: 12px 22px; border-radius: 999px; border: 1px solid #5e4840; background: transparent; color: #b8aba2; font-weight: 600; font-size: 13px; transition: border-color .2s, color .2s; }
+.age-gate-no:hover { border-color: #8a6a5c; color: #e5d9d0; }
+.age-gate-footnote { display: block; margin-top: 16px; font-size: 10px; line-height: 1.5; color: #8d8179; }
+@keyframes age-gate-in { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 700px) {
+  .age-gate-card { padding: 26px 20px 22px; }
+  .age-gate-card>p { font-size: 12.5px; }
+  .age-gate-yes { min-height: 52px; font-size: 13px; gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .age-gate { animation: none; } main.age-gated { filter: blur(18px); } }
+
 .launch-bar { background: #15080b; border-bottom: 1px solid #731822; color: #e7dcd5; }
 .launch-bar .wrap { min-height: 47px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
 .launch-bar strong { color: var(--gold); font-size: 11px; letter-spacing: .12em; }

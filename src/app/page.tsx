@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CheckoutLink, UpgradeModal } from './OfferWidgets';
 import { PreviewCarousel } from './PreviewCarousel';
+import { AgeGate } from './AgeGate';
 import { pixelViewOffer, pixelInitCheckoutBasic, pixelInitCheckoutFull, pixelUpsellViewed } from '@/lib/pixel';
 
 const A = '/assets/';
@@ -39,6 +40,8 @@ export default function Home() {
   const offerRef = useRef<HTMLElement>(null);
   const [upgradeOpen, setUpgradeOpen] = useState(false);
   const closeUpgrade = useCallback(() => setUpgradeOpen(false), []);
+  const [ageVerified, setAgeVerified] = useState(false);
+  const handleAgeVerified = useCallback(() => setAgeVerified(true), []);
   const basicUrl = process.env.NEXT_PUBLIC_CHECKOUT_BASIC_URL;
   const fullUrl = process.env.NEXT_PUBLIC_CHECKOUT_FULL_URL;
   const upgradeUrl = process.env.NEXT_PUBLIC_CHECKOUT_UPGRADE_URL;
@@ -73,7 +76,9 @@ export default function Home() {
     pixelInitCheckoutFull();
   }, []);
 
-  return <main id="inicio">
+  return <>
+  {!ageVerified && <AgeGate onVerify={handleAgeVerified} />}
+  <main id="inicio" className={ageVerified ? undefined : 'age-gated'} aria-hidden={!ageVerified}>
     <div className="launch-bar"><div className="wrap"><strong>CÓDIGO DO TOQUE</strong><span>Guia digital por R$ 14,90 · Pagamento único</span><a href="#oferta">Ver ofertas ↗</a></div></div>
     <section className="hero dark"><div className="hero-image" /><div className="hero-overlay" /><div className="wrap hero-wrap">
       <header><Brand /><small>GUIA DIGITAL PARA ADULTOS</small></header>
@@ -105,5 +110,6 @@ export default function Home() {
     <section className="faq light pad-small"><div className="wrap faq-wrap"><div className="heading centered"><Kicker>PERGUNTAS FREQUENTES</Kicker><h2>Tire suas <em>dúvidas.</em></h2></div><div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<b>+</b></summary><p>{answer}</p></details>)}</div><div className="centered faq-cta"><Button>Ver as duas ofertas</Button></div></div></section>
     <footer className="footer dark"><div className="wrap footer-main"><Brand /><p>Um guia digital sobre toque, comunicação e presença.<br />Conteúdo destinado a maiores de 18 anos.</p><a href="#inicio">Voltar ao início ↑</a></div><div className="wrap footer-bottom"><span>© {new Date().getFullYear()} Código do Toque</span><span>Material digital enviado por e-mail.</span></div></footer>
     <UpgradeModal open={upgradeOpen} onClose={closeUpgrade} basicUrl={basicUrl} upgradeUrl={upgradeUrl} />
-  </main>;
+  </main>
+  </>;
 }
