@@ -42,9 +42,10 @@ export default function Home() {
   const closeUpgrade = useCallback(() => setUpgradeOpen(false), []);
   const [ageVerified, setAgeVerified] = useState(false);
   const handleAgeVerified = useCallback(() => setAgeVerified(true), []);
-  const basicUrl = process.env.NEXT_PUBLIC_CHECKOUT_BASIC_URL;
-  const fullUrl = process.env.NEXT_PUBLIC_CHECKOUT_FULL_URL;
-  const upgradeUrl = process.env.NEXT_PUBLIC_CHECKOUT_UPGRADE_URL;
+  /* Checkout links — env override with hardcoded fallbacks so buttons never go dark */
+  const basicUrl = process.env.NEXT_PUBLIC_CHECKOUT_BASIC_URL || 'https://pay.cakto.com.br/8taxcob';
+  const fullUrl = process.env.NEXT_PUBLIC_CHECKOUT_FULL_URL || 'https://pay.cakto.com.br/3j7svgt_458559';
+  const upgradeUrl = process.env.NEXT_PUBLIC_CHECKOUT_UPGRADE_URL || 'https://pay.cakto.com.br/3ezykqi';
 
   /* Pixel: ViewContent when offer section scrolls into view */
   useEffect(() => {
