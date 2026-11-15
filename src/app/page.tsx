@@ -12,16 +12,13 @@ const chapterCards = [
   { src: '04-card-ritmo.png', alt: 'Etapa 03 — Ritmo: observe e ajuste' },
   { src: '05-card-conexao.png', alt: 'Etapa 04 — Conexão: conduza com presença' },
 ];
-// Relatos preservados da versão fornecida pelo proprietário da oferta.
-const testimonials = [
-  ['Nunca pensei que poderia fazer tanta diferença. Ela me olha de um jeito completamente novo agora.', 'Carlos M., 34'],
-  ['As técnicas são simples, mas o resultado é impressionante. Nossa conexão está muito mais intensa.', 'Roberto S., 41'],
-  ['Finalmente me sinto confiante. Ela me disse que nunca se sentiu tão especial.', 'Eduardo T., 29'],
-  ['Isso mudou completamente meu jogo. Ela não consegue parar de pensar nos nossos momentos.', 'Felipe R., 27'],
-  ['Eu estava perdendo ela... depois desses movimentos, nossa paixão voltou mais forte que nunca.', 'Gabriel M., 36'],
-  ['O que eu aprendi sobre ritmo mudou tudo. Ela mesma perguntou o que eu fiz diferente.', 'André L., 33'],
-  ['Antes eu achava que toque era só instinto. Agora sei que método faz toda a diferença.', 'Marcos P., 38'],
-  ['Ela disse que nunca se sentiu tão presente durante o momento. Isso não tem preço.', 'Diego R., 30'],
+// Conversas reais de compradores — capturas numeradas na ordem dos arquivos.
+const chatPreviews = [
+  { src: '01_acesso_email.png', alt: 'Conversa real de comprador confirmando o recebimento do material por e-mail' },
+  { src: '02_material.png', alt: 'Conversa real de comprador comentando o material recebido' },
+  { src: '03_esposa.png', alt: 'Conversa real de comprador relatando a reação da esposa' },
+  { src: '04_didatico.png', alt: 'Conversa real de comprador elogiando o conteúdo didático' },
+  { src: '05_preparacao.png', alt: 'Conversa real de comprador sobre a preparação' },
 ];
 const faqs = [
   ['O que recebo no plano Essencial?', 'O guia Código do Toque, com 23 movimentos, em PDF. Os três materiais complementares estão no Pacote Completo.'],
@@ -100,7 +97,7 @@ export default function Home() {
     {/* Prévias internas do guia */}
     <section className="preview-section dark pad-small"><div className="wrap"><div className="heading centered"><Kicker>VEJA POR DENTRO</Kicker><h2>Prévias de páginas <em>reais</em> do guia.</h2></div><p className="preview-subtitle">Estas são páginas reais do guia que você vai receber. As áreas com bloco vermelho protegem trechos com cenas íntimas — o conteúdo completo está no material que chega por e-mail após a compra.</p><div className="centered"><span className="preview-real-badge"><span>◆</span> Imagens 100% reais do guia completo</span></div><PreviewCarousel /></div></section>
 
-    <section className="testimonials dark pad-small"><div className="wrap"><div className="heading centered"><Kicker>O QUE ELES SENTEM</Kicker><h2>Na sessão, o que <em>muda</em> pra ela.</h2></div><div className="marquee-track"><div className="marquee-inner">{testimonials.map(([quote, person], i) => <blockquote key={`a-${i}`}><span aria-label="5 estrelas">★★★★★</span><p>"{quote}"</p><cite>— {person}</cite></blockquote>)}{testimonials.map(([quote, person], i) => <blockquote key={`b-${i}`}><span aria-label="5 estrelas">★★★★★</span><p>"{quote}"</p><cite>— {person}</cite></blockquote>)}</div></div></div></section>
+    <section className="testimonials dark pad-small"><div className="wrap"><div className="heading centered"><Kicker>O QUE ELES SENTEM</Kicker><h2>Na sessão, o que <em>muda</em> pra ela.</h2></div><div className="marquee-track"><div className="marquee-inner">{chatPreviews.map((chat, i) => <figure className="chat-card" key={`a-${i}`}><img src={`${A}${chat.src}`} alt={chat.alt} draggable={false} /></figure>)}{chatPreviews.map((chat, i) => <figure className="chat-card" key={`b-${i}`} aria-hidden="true"><img src={`${A}${chat.src}`} alt="" draggable={false} /></figure>)}</div></div></div></section>
 
     {/* Oferta — mockups finais + pixel ViewContent */}
     <section id="oferta" className="offer dark pad" ref={offerRef}><div className="wrap"><div className="heading centered"><Kicker>ESCOLHA SUA OFERTA</Kicker><h2>Comece pelo guia.<br /><em>Ou leve a coleção inteira.</em></h2><p>Pagamento único. Arquivos enviados por e-mail após a confirmação.</p></div><div className="offers-grid">
